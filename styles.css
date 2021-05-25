@@ -12,6 +12,7 @@ body {
 	display: block;
 	width: 100%;
 }
+/*drop down based hamburger on https://codepen.io/MinzCode/pen/bGexzXw */ 
 nav {
 	position: fixed;
 	z-index: 10;
