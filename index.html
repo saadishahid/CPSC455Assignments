@@ -7,12 +7,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -21,17 +17,22 @@
     <!-- <i class="fas fa-bars"></i> -->
     <!-- NavBar-->
     <nav>
-        <div class="logo">
-            <h4>Musical Instruments</h4>
-        </div>
-        <ul id="nav-options">
-            <li id="home"> <a href="#">Home</a> </li>
-            <li id="about"> <a href="about.html">About</a></li>
+        <input id="nav-toggle" type="checkbox">
+        <div class="logo"><strong>Musical Instruments</strong></div>
+        <ul class="links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://msshahid.tech">Personal Website</a></li>
         </ul>
+        <label for="nav-toggle" class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
     </nav>
     <div class="flex-container">
-        <div id="inputForm">
-            <form id="inputForm" method="POST" name="Card-Entry">
+        <div id="input-form">
+            <form id="input-form" method="POST" name="Card-Entry">
                 <input type="text" id="URL" name="URL" placeholder="Enter URL"><br><br>
                 <input type="text" id="Description" name="Description" placeholder="Enter Card Name"><br><br>
                 <br>
@@ -43,7 +44,7 @@
             <br>
             <button id="deleteList" onclick="deleteList();">Delete All Cards</button>
             <br><br>
-            <div id="images"></div>
+            <ul id="card-list"> </ul>
         </div>
         <script src="app.js"></script>
 </body>

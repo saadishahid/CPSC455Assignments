@@ -12,8 +12,8 @@ var images =
 
 let obj = JSON.parse(images);
 //console.log(images);
-for (let url in obj) {
-    addImage(obj[url]);
+for (let item in obj) {
+    addImage(item, obj[item]);
 }
 
 let v;
@@ -22,36 +22,41 @@ function imgsubmit() {
     let urlToAdd = (document.getElementById('URL').value);
     let cardDescriptionToAdd = (document.getElementById('Description').value);
     let k = (cardDescriptionToAdd);
+    //debugger;
     v = (urlToAdd);
     let temp = v;
     //making a key val pair
     obj[k] = v;
-    addImage(obj[k]);
+    addImage(k, obj[k]);
 }
 
 function deleteList() {
-    let imageContainer = document.getElementById('images');
+    let imageContainer = document.getElementById('card-list');
     imageContainer.innerHTML = "";
 }
 
 
 
-function addImage(imageList) {
-  // debugger;
-    let imageContainer = document.getElementById('images');
-    let imageElement = document.createElement("img");
-    imageElement.setAttribute('src', imageList);
-    imageElement.setAttribute('class', "cards");
-    imageContainer.append(imageElement);
-    
-    let imageItem = document.createElement("li");
-    let brk = document.createElement('BR');
-  
-    imageItem.innerHTML = imageList;
-    imageElement.appendChild(imageItem);
-    imageItem.append(brk);
-    imageItem.append(brk);
-    
+function addImage(text, url) {
+ // debugger;
+
+ let imageList = document.getElementById('card-list');
+ let listElement = document.createElement('li');
+ let divImage = document.createElement('DIV');
+ divImage.setAttribute('class', "card-frame");
+ let imageElement = document.createElement("img");
+ imageElement.setAttribute('src', url);
+ imageElement.setAttribute('class', "cards");
+ let paraElement = document.createElement("P");
+ paraElement.setAttribute('class', 'card-frame');
+ let textNode = document.createTextNode(text);
+ paraElement.append(textNode);
+//  let brk = document.createElement("br");
+//  listElement.append(brk);
+ divImage.append(imageElement);
+ divImage.append(paraElement);
+ listElement.append(divImage);
+ imageList.append(listElement);    
 }
 
 function clearFields() {
