@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Assignment-1 CPSC 455</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- <i class="fas fa-bars"></i> -->
+    <!-- NavBar-->
+    <nav>
+        <div class="logo">
+            <h4>Musical Instruments</h4>
+        </div>
+        <ul id="nav-options">
+            <li id="home"> <a href="#">Home</a> </li>
+            <li id="about"> <a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <div class="flex-container">
+        <div id="inputForm">
+            <form id="inputForm" method="POST" name="Card-Entry">
+                <input type="text" id="URL" name="URL" placeholder="Enter URL"><br><br>
+                <input type="text" id="Description" name="Description" placeholder="Enter Card Name"><br><br>
+                <br>
+                <button type="button" id="genCard" onclick="imgsubmit()" value="Submit">Generate Card</button>
+                <button type="button" id="clear" onclick="clearFields();">Clear</button>
+                <br>
+            </form>
+            <br>
+            <br>
+            <button id="deleteList" onclick="deleteList();">Delete All Cards</button>
+            <br><br>
+            <div id="images"></div>
+        </div>
+        <script src="app.js"></script>
+</body>
+
+</html>

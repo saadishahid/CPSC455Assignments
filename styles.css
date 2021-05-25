@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 6vh;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.nav-options{
+    display: flex;
+    justify-content: left;
+    background-color: bisque;
+    border-radius: 1em;
+    border-color: black;
+    font-family: 'Roboto', sans-serif;
+}
