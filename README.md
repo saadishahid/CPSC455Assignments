@@ -1,1 +1,2 @@
-# CPSC455Assignments
+# Trading Card Website - Assignment 1
+
