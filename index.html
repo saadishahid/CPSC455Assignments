@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <!-- <i class="fas fa-bars"></i> -->
-    <!-- NavBar-->
+    
+    <!-- NavBar...based on https://codepen.io/MinzCode/pen/bGexzXw-->
     <nav>
         <input id="nav-toggle" type="checkbox">
         <div class="logo"><strong>Musical Instruments</strong></div>
@@ -33,8 +33,8 @@
     <div class="flex-container">
         <div id="input-form">
             <form id="input-form" method="POST" name="Card-Entry">
-                <input type="text" id="URL" name="URL" placeholder="Enter URL"><br><br>
-                <input type="text" id="Description" name="Description" placeholder="Enter Card Name"><br><br>
+                <input class='input-box' type="text" id="URL" name="URL" placeholder="Enter URL"><br><br>
+                <input class='input-box' type="text" id="Description" name="Description" placeholder="Enter Card Name"><br><br>
                 <br>
                 <button class = 'btn' type="button" id="genCard" onclick="imgsubmit()" value="Submit">Generate Card</button>
                 <button class = 'btn' type="button" id="clear" onclick="clearFields();">Clear</button>
