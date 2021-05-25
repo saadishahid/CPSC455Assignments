@@ -48,7 +48,7 @@ function addImage(text, url) {
  imageElement.setAttribute('src', url);
  imageElement.setAttribute('class', "cards");
  let paraElement = document.createElement("P");
- paraElement.setAttribute('class', 'card-frame');
+ //paraElement.setAttribute('class', 'card-frame');
  let textNode = document.createTextNode(text);
  paraElement.append(textNode);
 //  let brk = document.createElement("br");

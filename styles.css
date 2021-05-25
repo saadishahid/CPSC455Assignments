@@ -1,7 +1,8 @@
 body {
 	padding: 0;
 	margin: 0;
-    background-color: #1b2021;
+    background-color: #111213;
+    font-size: 100%;
 }
 .container {
 	position: relative;
@@ -20,7 +21,7 @@ nav {
 	font-family: 'Montserrat', sans-serif;
 	padding: 0 5%;
 	height: 100px;
-	background-color: #d8ac9c;
+	background-color: #025955;
 }
 nav .logo {
 	float: left;
@@ -29,8 +30,7 @@ nav .logo {
 	display: flex;
 	align-items: center;
 	font-size: 36px;
-	color: #5f939a;
-    font-family: 'Roboto', sans-serif;
+	color: #fde8cd;
     font-family: 'Roboto Condensed', sans-serif;
 }
 nav .links {
@@ -42,7 +42,6 @@ nav .links {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-    font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;
 }
 nav .links li {
@@ -53,8 +52,8 @@ nav .links a {
 	padding: 1em;
 	font-size: 16px;
 	font-weight: bold;
-	color: #5f939a;
-	text-decoration: none;
+	color: #fde8cd;
+	
 }
 #nav-toggle {
 	position: relative;
@@ -70,19 +69,19 @@ nav .hamburger {
 nav .hamburger .line {
 	width: 30px;
 	height: 5px;
-	background-color: #5f939a;
+	background-color: #fde8cd;
 	margin: 5px;
 	border-radius: 3px;
 	transition: all .3s ease-in-out;
 }
 @media screen and (max-width: 768px) {
 	nav .logo {
-		float: none;
+		
 		width: auto;
 		justify-content: center;
 	}
 	nav .links {
-		float: none;
+		
 		position: fixed;
 		z-index: 10;
 		left: 0;
@@ -114,6 +113,7 @@ nav .hamburger .line {
     padding-top: 200px;
     position: relative;
     justify-content: center;
+    
 }
 
 #input-form {
@@ -124,7 +124,8 @@ nav .hamburger .line {
 }
 
 .cards {
-    width: 50%;
+    max-width: 50%;
+    min-width: 25%;
     height: auto;
     background: #272d2e;
     object-fit: contain;
@@ -132,22 +133,61 @@ nav .hamburger .line {
 
 
  #card-list {
-    
      text-align: center;
      height: auto;
-     width: 100%;
+     max-width: 100%;
+     min-width: 50%;
  }
 
 .card-frame {
-    font-size: 3vw;
+    font-size: min(3vw);
     margin-left: 200px;
     margin-right: 200px;
+    margin-top: auto;
+    margin-bottom: 30px;
     font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    color: #fde8cd;
     border-style: solid;
 }
 p {
     margin-left: auto;
     margin-right: auto;
 }
+.about {
+    font-size: min(16px);
+    font-family: 'Montserrat', sans-serif;
+    color: #fde8cd;
+}
+.about-heading {
+    font-size: 36px;
+    text-align: center;
+	color: #5f939a;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.about-button {
+    position: realtive;
+    text-align: center;
+}
+.btn {
+    background-color: #00917c; 
+    border: none;
+    color: fde8cd;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #fde8cd;
+    
+}
+#clear {
+    background-color: #687980; 
+}
 
+#deleteList {
+    background-color: #810000;
+}
+ li {
+     list-style: none;
+ }
