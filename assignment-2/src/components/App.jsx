@@ -19,8 +19,11 @@ function App() {
 
   function deleteCard(id) {
     insertCards(existingCards => {
-      existingCards.filter()
-    })
+     return existingCards.filter((card, index) => {
+        return index !==id;
+
+      });
+    });
 
   }
 
@@ -30,8 +33,10 @@ function App() {
       <CreateArea
       addEvent={addCard}
       />
-      {cards.map((singleCardItem) => {
+      {cards.map((singleCardItem, index) => {
         return <Card
+        key={index}
+        id={index}
         title={singleCardItem.title}
         url={singleCardItem.url}
         onDelete={deleteCard}

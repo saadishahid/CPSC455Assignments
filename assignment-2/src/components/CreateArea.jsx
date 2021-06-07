@@ -26,8 +26,12 @@ function CreateArea(props) {
 
   function clearFields(event) {
     event.preventDefault();
-    insertCard(""); 
-    
+    insertCard({
+      title:"",
+      url:"",
+      details:""
+    } );
+
     //CreateArea(props);
   
   }
