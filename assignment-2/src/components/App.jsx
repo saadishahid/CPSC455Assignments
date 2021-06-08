@@ -31,28 +31,23 @@ function App() {
       }}
       />
 
+      
 
       {cards.map((singleCardItem, index) => {
-        const arr = [];
-        arr.push(singleCardItem);
+        // const arr = [];
+        // arr.push(singleCardItem);
         
-        return isOpen ? <Details 
+        return isOpen ?
+    
+        <Details 
         
         key={index}
         id={index}
         title={singleCardItem.title}
         detail={singleCardItem.detail}
-        
-        onBack={(id)=> {
-          togglePopup();
-          insertCards(existingCards => {
-            console.log(cards);
-            return cards;
-           });
-         }
-         }
                 
-        />:<Card
+        />
+        :<Card
         key={index}
         id={index}
         title={singleCardItem.title}
@@ -69,15 +64,20 @@ function App() {
         }
         }
         // detail function
-      
+    
         onDetail={(id)=> {
-  
-          togglePopup();
+            togglePopup();
+           
+          
+            insertCards(existingCards => {
+                return existingCards.filter((card, index) => {
+                 return index ===id;
+               });
+             });
+                      
          }
         }
-                 
-        
-        //check
+     
       />;
       })}
 
