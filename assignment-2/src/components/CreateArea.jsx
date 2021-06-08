@@ -4,7 +4,7 @@ function CreateArea(props) {
   const [card, insertCard] = useState({
     title:"",
     url:"",
-    details:""
+    detail:""
   });
 
   function changeHandler(event) {
@@ -17,33 +17,30 @@ function CreateArea(props) {
     });
   }
 
-
-  function submitCard(event){
-    props.addEvent(card);
-
-    event.preventDefault(); // To prevent the entire page from refreshing when button is clicked
-  }
-
-  function clearFields(event) {
-    event.preventDefault();
-    insertCard({
-      title:"",
-      url:"",
-      details:""
-    } );
-
-    //CreateArea(props);
-  
-  }
    
   return (
     <div>
       <form>
         <input name="title" value={card.title} onChange={changeHandler} placeholder="Title" />
         <input name="url" value={card.url} onChange={changeHandler} placeholder="Enter URL"/>
-        <input name="details" value={card.details} onChange={changeHandler} placeholder="Enter Details"/>
-        <button className="add-button" onClick={submitCard}>Add</button>
-        <button className="clear-button" onClick={clearFields}>Clear</button>
+        <input name="detail" value={card.detail} onChange={changeHandler} placeholder="Enter Details"/>
+        
+        <button className="add-button" onClick={event => {
+          props.addEvent(card);
+          event.preventDefault();
+        }}
+        >Add</button>
+        
+        <button className="clear-button" onClick={event=> {
+          event.preventDefault();
+          insertCard({
+            title:"",
+            url:"",
+            detail:""
+          });
+        }}
+        >Clear</button>
+     
       </form>
     </div>
   );
