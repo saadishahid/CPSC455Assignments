@@ -16,15 +16,7 @@ function App() {
     setIsOpen(!isOpen);
   }
 
-  // function detailCard(id, existingCards) {
-  //   existingCards.filter((id)=> {
-  //     return id===index;
-  //   })
-
-  // }
-
-
-
+ 
 
   return (
     <div>
@@ -41,14 +33,25 @@ function App() {
 
 
       {cards.map((singleCardItem, index) => {
-        return isOpen? <Details 
+        const arr = [];
+        arr.push(singleCardItem);
+        
+        return isOpen ? <Details 
+        
         key={index}
         id={index}
         title={singleCardItem.title}
         detail={singleCardItem.detail}
-        onBack={togglePopup}
         
-        
+        onBack={(id)=> {
+          togglePopup();
+          insertCards(existingCards => {
+            console.log(cards);
+            return cards;
+           });
+         }
+         }
+                
         />:<Card
         key={index}
         id={index}
@@ -67,7 +70,12 @@ function App() {
         }
         // detail function
       
-        onDetail={togglePopup}
+        onDetail={(id)=> {
+  
+          togglePopup();
+         }
+        }
+                 
         
         //check
       />;
