@@ -3,6 +3,7 @@ import Header from "./Header";
 import Card from "./Card";
 import CreateArea from "./CreateArea";
 import Details from "./Details";
+import Download from "./Download";
 import axios from "axios";
 
 
@@ -44,6 +45,18 @@ const getData = ()=> {
     <div>
       <Header />
       <CreateArea
+
+        onDownload = { ()=> {
+          axios.get('/download').then(res => {
+          // console.log(JSON.stringify(res.data));
+          const blob = new Blob([JSON.stringify(res.data)], {type:"text/plain"});
+          const url = URL.createObjectURL(blob);
+          const dlLink = document.createElement('a');
+          dlLink.download = 'cardDataFile.json';
+          dlLink.href = url;
+          dlLink.click();
+          });
+        }}
 
       //adding a card
       addEvent={(card) => {
@@ -90,32 +103,57 @@ const getData = ()=> {
         .catch(error=>console.log(error)) ;
         getData();
 
-
-
-          insertCards(existingCards => {
-           return existingCards.filter((card, index) => {
-              return index !==id;
-            });
-          });
+          // insertCards(existingCards => {
+          //  return existingCards.filter((card, index) => {
+          //     return index !==id;
+          //   });
+          // });
         }
         }
         // detail function
     
         onDetail={(id)=> {
             togglePopup();
-           
-          
-            insertCards(existingCards => {
+           insertCards(existingCards => {          
                 return existingCards.filter((card, index) => {
                  return index ===id;
                });
-             });
-                      
-         }
-        }
+              });          
+        }}
+          onBack={()=> {
+            togglePopup();
+            getData();
+          }}
+         
+         
+
+        
+
+             
+  
+          // insertCards(existingCards => {
+          //   return [...existingCards, card];
+          // });
+     
+
+
      
       />;
       })}
+      {/* <Download
+        onDownload = { ()=> {
+          axios.get('/download').then(res => {
+           // console.log(JSON.stringify(res.data));
+           const blob = new Blob([JSON.stringify(res.data)], {type:"text/plain"});
+           const url = URL.createObjectURL(blob);
+           const dlLink = document.createElement('a');
+           dlLink.download = 'cardDataFile.json';
+           dlLink.href = url;
+           dlLink.click();
+          });
+        }}
+      
+      /> */}
 
     </div>
   );

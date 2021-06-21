@@ -15,6 +15,11 @@ app.get ("/cards", (req, res) => {
     res.json(data);
 });
 
+
+app.get('/download',(req,res)=> {
+    res.json(data);
+});
+
 app.post("/cards", (req,res) => {
     let newCard = req.body;
     
@@ -28,10 +33,10 @@ app.post("/delete", (req,res) => {
     let deletionIndex = Object.keys(req.body)[0];
     console.log(deletionIndex);
     data.splice(deletionIndex,1);
-
-
-    res.send('deleted successfully');
+   res.send('deleted successfully');
 });
+
+
 
 app.listen(5000, () => {
     console.log("server running on port 5000");

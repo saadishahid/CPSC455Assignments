@@ -19,6 +19,8 @@ function Card(props) {
       }}>DETAILS</button>
 
 
+
+
     </div>
   );
 }
