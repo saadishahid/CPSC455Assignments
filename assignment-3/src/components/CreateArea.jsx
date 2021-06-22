@@ -41,10 +41,10 @@ function CreateArea(props) {
         }}
         >Clear</button>
 
-<button className="download-button" onClick={event=> {
-    props.onDownload();
-          }}
-        >DOWNLOAD ALL</button>
+        <button className="download-button" onClick={event=> {
+            props.onDownload();
+                  }}
+                >DOWNLOAD ALL</button>
      
       </form>
     </div>
