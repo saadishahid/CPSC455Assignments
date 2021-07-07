@@ -9,10 +9,9 @@ import axios from "axios";
 
 function App() {
 
-  const[cards, insertCards] = useState([]);
+ const[cards, insertCards] = useState([]);
 
  const [isOpen, setIsOpen] = useState(false);
-
 
 
 const getData = ()=> {
@@ -35,7 +34,6 @@ const getData = ()=> {
     <div>
       <Header />
       <CreateArea
-
         onDownload = { ()=> {
           axios.get('/download').then(res => {
           const blob = new Blob([JSON.stringify(res.data)], {type:"text/plain"});
@@ -57,12 +55,9 @@ const getData = ()=> {
       />
 
       {cards.map((singleCardItem, index) => {
-      
-        
         return isOpen ?
-    
-        <Details 
         
+        <Details 
         key={index}
         id={index}
         title={singleCardItem.title}
@@ -84,7 +79,6 @@ const getData = ()=> {
         }
         }
         // detail function
-    //
         onDetail={(id)=> {
             togglePopup();
            insertCards(existingCards => {          
@@ -93,8 +87,6 @@ const getData = ()=> {
                });
               });          
         }}
-          
-  
       />;
       })}
      

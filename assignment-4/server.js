@@ -31,22 +31,9 @@ const cardSchema = new mongoose.Schema({
 
 const Card = mongoose.model("Card", cardSchema);
 
-//optional///////////////
-// for (item of data) {
-//     const musicCard = new Card(item);
-//     musicCard.save().then(()=>console.log('saved in DB'));
-  
-// }
-/////////////////////////
-
-//const cardDataSet = new Set();
-let cardDataArray = [];
-
-
-
-
 
  app.get ("/cards",  async (req, res) => {
+  let cardDataArray = [];
   try {
    await Card.find((err,cards) => {
         err ? console.log(err) : null;
@@ -57,16 +44,13 @@ let cardDataArray = [];
     });
    
     //to prevent duplication
-    var arr = []
-    arr =  cardDataArray.filter((cardData, index, self) =>
+    let arr =[];
+     arr =  cardDataArray.filter((cardData, index, self) =>
     index === self.findIndex((t) => (
         t.title === cardData.title && t.link === cardData.link && t.detail === cardData.detail
     ))
     ) 
- 
-   
-    //console.log(arr);
-   // console.log(cardDataArray);
+
    res.json(arr); 
    }
    catch (error) {
@@ -75,8 +59,23 @@ let cardDataArray = [];
     });
 
 
-app.get('/download',(req,res)=> {
-    res.json(data);
+app.get('/download',async(req,res)=> {
+  try {
+    let downloadCardsArray = []
+    //let temp = [];
+    await Card.find((err,cards) => {
+      err ? console.log(err) : null;
+      cards.forEach((card) => {
+          downloadCardsArray.push({title:card.title, link: card.link, detail:card.detail});
+         // downloadCardsArray.push(temp);
+      });
+  });
+  console.log(downloadCardsArray);
+  res.json(downloadCardsArray);  
+} catch (e) {
+    console.log (e);
+  }
+  
 });
 
 app.post("/cards", (req,res) => {
@@ -84,17 +83,13 @@ app.post("/cards", (req,res) => {
     let newCard = req.body;
     const musicCard = new Card(newCard);
     musicCard.save().then(()=>res.send('all good'));
-   
-    // data.push(newCard);
-  //  res.send('all good');
+
 });
 
-app.post("/delete", (req,res) => {
-  //console.log(Object.keys(req.body));
+app.post("/delete", (req,res) => {   
     let deletionItem = Object.keys(req.body)[0];
     Card.deleteOne({title:(deletionItem)}, err => err? console.log(err):console.log("Deleted Successfully"));
-    // data.splice(deletionIndex,1);
-   res.send('deleted successfully');
+    res.send('deleted successfully');
 });
 
 app.listen(5000, () => {
