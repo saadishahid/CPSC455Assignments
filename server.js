@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
+
 
 
 const data = require("./client/data");
@@ -31,7 +31,7 @@ const mongoose = require('mongoose');
 
 async function connectDB() {
   try {
-    await mongoose.connect(process.env.DB_STRING, {
+    await mongoose.connect('mongodb+srv://saadishahid:cardsdb@instrumentcards.skvq3.mongodb.net/instrumentCards?retryWrites=true&w=majority', {
       useNewUrlParser: true
     }, {
       useUnifiedTopology: true
