@@ -37,7 +37,7 @@ async function connectDB() {
       useUnifiedTopology: true
     });
   } catch (error) {
-    handleError(error);
+    console.log(error);
   }
 }
 connectDB();
