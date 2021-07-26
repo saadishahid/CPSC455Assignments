@@ -10,7 +10,7 @@ const app = express();
 
 
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.urlencoded());
@@ -141,6 +141,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log("server running");
 });
