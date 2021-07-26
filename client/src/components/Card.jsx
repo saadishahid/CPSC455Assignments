@@ -1,0 +1,29 @@
+import React from "react";
+
+
+// import Details from "./Details";
+
+function Card(props) {
+
+   return (
+    <div className="card">
+      <h1>{props.title}</h1>
+      <img src={props.link} alt="Instrument"/>
+  
+      <button className="del-button" onClick={(event)=>{
+        event.preventDefault(); 
+        props.onDelete(props.title);
+      }}>DELETE</button>
+
+      <button className="detail-button" onClick={()=>{
+        props.onDetail(props.id);
+      }}>DETAILS</button>
+
+
+
+
+    </div>
+  );
+}
+
+export default Card;
