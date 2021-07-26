@@ -1,11 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+require('dotenv').config();
 
 
 const data = require("./client/data");
 
 const app = express();
+
+
+
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -13,9 +17,21 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 const mongoose = require('mongoose');
+// async function connectDB() {
+//   try {
+//     await mongoose.connect('mongodb+srv://saadishahid:cardsdb@instrumentcards.skvq3.mongodb.net/instrumentCards?retryWrites=true&w=majority', {
+//       useNewUrlParser: true
+//     }, {
+//       useUnifiedTopology: true
+//     });
+//   } catch (error) {
+//     handleError(error);
+//   }
+// }
+
 async function connectDB() {
   try {
-    await mongoose.connect('mongodb+srv://saadishahid:cardsdb@instrumentcards.skvq3.mongodb.net/instrumentCards?retryWrites=true&w=majority', {
+    await mongoose.connect(process.env.DB_STRING, {
       useNewUrlParser: true
     }, {
       useUnifiedTopology: true
@@ -24,7 +40,6 @@ async function connectDB() {
     handleError(error);
   }
 }
-
 connectDB();
 
 // nothing
