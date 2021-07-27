@@ -48,7 +48,7 @@ const getData = ()=> {
 
       //adding a card
       addEvent={(card) => {
-        axios.post('/cards',card)
+        axios.post('/cards',card).then((res) => console.log(res))
         .then(getData())
         .catch(error=>console.log(error)) ;
         //getData();
